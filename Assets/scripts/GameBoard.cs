@@ -23,6 +23,7 @@ public class GameBoard : MonoBehaviour
         tileSize = 1.0f * tileSizeModifier; //redundant if tilesize base value is 1.0f world units, but kept it so it can be changed
         GameObjectFactory.sizeModifier = tileSizeModifier;
         GenerateBoard();
+        GenerateButtons();
     }
 
     void GenerateBoard()
@@ -69,7 +70,7 @@ public class GameBoard : MonoBehaviour
                 }
             }
         }
-        /**
+        /** //debugging stuff here
         GameObject t = getTile(4, 4).transform.Find("Gem").gameObject;
 
         moveGameObjectToTile(t, 5, 5);
@@ -86,22 +87,59 @@ public class GameBoard : MonoBehaviour
 
     //these additional methods just make the code look somewhat cleaner
     //because then I don't have to do it all in one place
-    void generateButtons()
+    void GenerateButtons()
     {
-        GameObject barrierButton = new GameObject("CommitButton");
-        GameObject etherButton = new GameObject("EtherButton");
-        GameObject commitButton = new GameObject("BarrierButton");
-        GameObject rotationButton = new GameObject("RotationButton");
+        GameObject barrierButton = new GameObject("BarrierButton");
+        makeButton(barrierButton);
+        barrierButton.transform.SetParent(board.transform);
 
+        GameObject etherButton = new GameObject("EtherButton");
+        makeButton(etherButton);
+        etherButton.transform.SetParent(board.transform);
+
+        GameObject commitButton = new GameObject("CommitButton");
+        makeButton(commitButton);
+        commitButton.transform.SetParent(board.transform);
+
+        GameObject rotationButton = new GameObject("RotationButton");
+        makeButton(rotationButton);
+        rotationButton.transform.SetParent(board.transform);
 
     }
 
     void makeButton(GameObject btn) 
     {
+
+        btn.transform.SetParent(board.transform);
+        SpriteRenderer renderer = btn.AddComponent<SpriteRenderer>();      
+        BoxCollider2D collider = btn.AddComponent<BoxCollider2D>();
+        collider.size = new Vector2(1.0f, 1.0f);
+
         switch (btn.name)
         {
             case "BarrierButton":
-                break;
+                renderer.sprite = Resources.Load<Sprite>("Sprites/tile_barrier");
+                btn.transform.position = new Vector3(5.0f, 3.0f, 0);
+                btn.AddComponent<BarrButton>();
+                return;
+
+            case "EtherButton":
+                renderer.sprite = Resources.Load<Sprite>("Sprites/tile_eth");
+                btn.transform.position = new Vector3(6.0f, 3.0f, 0);
+                btn.AddComponent<EthButton>();
+                return;
+
+            case "CommitButton":
+                renderer.sprite = Resources.Load<Sprite>("Sprites/commit_turn");
+                btn.transform.position = new Vector3(5.0f, 2.0f, 0);
+                btn.AddComponent<CommitButton>();
+                return;
+
+            case "RotationButton":
+                renderer.sprite = Resources.Load<Sprite>("Sprites/tile");
+                btn.transform.position = new Vector3(6.0f, 2.0f, 0);
+                btn.AddComponent<RotationButton>();
+                return;
         }
     }
 
