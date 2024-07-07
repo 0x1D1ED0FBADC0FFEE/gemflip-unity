@@ -36,7 +36,8 @@ public class Tile : GemFlipClickable
             
     override public void onClick()
     {
-        Debug.Log("Tile Clicked");
+        //Debug.Log("Tile Clicked");
+
     }
 
     void StartFlashing()

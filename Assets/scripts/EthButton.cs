@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EthButton : GemFlipButton
 {
+    bool eth_active;
     // Start is called before the first frame update
     void Start()
     {
-        
+        eth_active = false;
     }
 
     // Update is called once per frame
@@ -15,8 +16,17 @@ public class EthButton : GemFlipButton
     {
         
     }
+    //toggles state of ether placement
     public override void onClick()
     {
-        Debug.Log("eth clicked");
+        eth_active = !eth_active;
+        if(eth_active)
+        {
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/tile_eth_on");
+        }
+        else 
+        {
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/tile_eth");
+        }
     }
 }

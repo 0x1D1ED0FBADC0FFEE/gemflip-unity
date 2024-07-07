@@ -139,6 +139,14 @@ public class GameBoard : MonoBehaviour
                 renderer.sprite = Resources.Load<Sprite>("Sprites/tile");
                 btn.transform.position = new Vector3(6.0f, 2.0f, 0);
                 btn.AddComponent<RotationButton>();
+
+                GameObject arrow = new GameObject("Arrow");
+                SpriteRenderer arrowSprite = arrow.AddComponent<SpriteRenderer>();
+                arrowSprite.sprite = Resources.Load<Sprite>("Sprites/south_arrow");
+
+                arrow.transform.SetParent(btn.transform);
+                arrow.transform.localPosition = new Vector3(0, 0, -1);
+
                 return;
         }
     }
