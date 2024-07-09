@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Constants 
-{
+    //game constants that, supposedly, make the code more readable
+    public static class Constants
+    {
 
         public const int RED = 0;
         public const int BLUE = 1;
@@ -16,5 +17,7 @@ public static class Constants
 
         public const int ETHER = 0;
         public const int SOLID = 1;
-    
-}
+
+    }
+
+

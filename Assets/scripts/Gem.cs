@@ -2,29 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gem : GemFlipClickable
-{
-    int color;
-    // Start is called before the first frame update
-    void Start()
+    //gem specific behavior component
+    public class Gem : GemFlipClickable
     {
-        
-    }
+        int color;
 
-    // Update is called once per frame
-    void Update()
-    {
-      //  
-    }
-
-    override public void onClick()
-    {
-        Debug.Log("Gem Clicked");
-    }
+        override public void onClick()
+        {
+            //Debug.Log("Gem Clicked");
+        }
 
 
-    public void Initialize(int color)
-    {
-        this.color = color;
+        public void Initialize(int color, int row, int column)
+        {
+            this.color = color;
+            this.row = row;
+            this.column = column;
+        }
     }
-}
+
+
+

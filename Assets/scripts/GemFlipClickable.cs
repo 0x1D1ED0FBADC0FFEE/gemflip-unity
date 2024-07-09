@@ -2,21 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GemFlipClickable : MonoBehaviour
-{
-    public int row;
-    public int column;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    //only purpose of this class is to force an implementation
+    //for onClick()
+    public abstract class GemFlipClickable : MonoBehaviour
     {
-        
-    }
-    public abstract void onClick();
+        public int row;
+        public int column;
 
-}
+        public abstract void onClick();
+
+    }

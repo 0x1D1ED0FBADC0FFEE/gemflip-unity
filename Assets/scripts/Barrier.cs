@@ -2,29 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrier : GemFlipClickable
-{
-    int phase;
-    // Start is called before the first frame update
-    void Start()
+    //Barrier specific behavior component for GameObjects
+    public class Barrier : GemFlipClickable
     {
-        
-    }
+        int phase;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    override public void onClick()
-    {
-        Debug.Log("Barrier Clicked");
-    }
+        override public void onClick()
+        {
+            Debug.Log("Barrier Clicked");
+        }
 
 
-    public void Initialize(int phase)
-    {
-        this.phase = phase;
+        public void Initialize(int phase, int row, int column)
+        {
+            this.phase = phase;
+            this.row = row;
+            this.column = column;
+        }
     }
-}
+

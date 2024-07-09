@@ -2,25 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationButton : GemFlipButton
-{
-    public Quaternion arrowRotation;
-    // Start is called before the first frame update
-    void Start()
+    //will determine rotation or where a placed drone is facing
+    //(game constants use cardinal directions)
+    public class RotationButton : GemFlipButton
     {
-        arrowRotation = Quaternion.Euler(0, 0, 0);
+        public override void onClick()
+        {
+            //this rotates the arrow upon clicking the button
+            gameObject.transform.Find("Arrow").rotation *= Quaternion.Euler(0, 0, 90f);
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public override void onClick()
-    {
-        Quaternion currentRotation = gameObject.transform.Find("Arrow").GetComponent<SpriteRenderer>().transform.rotation;
-        arrowRotation = gameObject.transform.Find("Arrow").GetComponent<SpriteRenderer>().transform.rotation *= Quaternion.Euler(0,0,90f);
-
-    }
-}

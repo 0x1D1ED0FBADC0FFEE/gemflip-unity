@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarrButton : GemFlipButton
-{
-    bool barrier_active;
+    //Toggle button, determinse whether player will try to place
+    //a barrier on the tile (can only do if they have a drone on tile)
+    public class BarrButton : GemFlipButton
+    {
+        public bool barrier_active;
 
-    public void Start()
-    {
-        barrier_active = false;
-    }
-    public override void onClick()
-    {
-        barrier_active = !barrier_active;
-        if (barrier_active)
+        public void Start()
         {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/tile_barrier_on");
+            barrier_active = false;
         }
-        else
+        public override void onClick()
         {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/tile_barrier");
+            barrier_active = !barrier_active;
+            if (barrier_active)
+            {
+                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/tile_barrier_on");
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/tile_barrier");
+            }
         }
     }
-}
+
+
