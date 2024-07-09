@@ -1,7 +1,7 @@
 GemFlip is a turn based board game that I created solely for the purpose of having a project that I can port into different frameworks and contexts I would like to learn.
 A version written in C using SDLC exists. 
 
-This version features a client written in C#, using .NET MAUI which will embed the actual game (Unity) shortly. A server to connect two player clients will be written in ASP.NET. A machine learning project (likely supervised learning) will be added to develop a single player AI. 
+This version features a client written in C#, using .NET MAUI (currently unpublished because I want to clean up the code first) which will embed the actual game (Unity) shortly. A server to connect two player clients will be written in ASP.NET. A machine learning project (likely supervised learning) will be added to develop a single player AI. 
 
 The graphics are AI generated and arbitrary and there is no financial ambition outside of using the products in job applications.
 
